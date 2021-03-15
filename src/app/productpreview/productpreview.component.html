@@ -1,0 +1,206 @@
+
+
+
+
+<section class="sec-padding">
+  <div class="container">
+
+<div class="col-md-8 col-sm-12 col-xs-12  margin-bottom">
+<div class="product_preview_left">
+<div class="gallery">
+
+<div class="full"> 
+<!-- first image is viewable to start --> 
+<img src="assets/images/top1large.jpg"  alt=""/> </div>
+
+<div class="previews"> 
+ 
+
+<a data-full="assets/images/top1large.jpg"><img src="assets/images/top1small.jpg" alt="" /></a> 
+   
+<a data-full="assets/images/top2large.jpg"><img src="assets/images/top2small.jpg" alt="" /></a> 
+
+<a data-full="assets/images/top3large.jpg"><img src="assets/images/top3small.jpg" alt="" /></a> 
+
+<a data-full="assets/images/top4large.jpg"><img src="assets/images/top4small.jpg" alt="" /></a> 
+
+
+</div>
+
+</div>
+</div>
+</div> 
+<!--end left-->
+
+<div class="col-md-4 col-sm-12 col-xs-12">
+<h4 class="uppercase">Fashion Casuals</h4>
+<div class="divider-line solid light"></div>
+<br/>
+<div class="col-md-5"><h2 class="text-primary font-weight-4">$299</h2></div>
+<div class="col-md-7">
+<div class="stars">
+<span><i class="fa fa-star" aria-hidden="true"></i></span>
+<span><i class="fa fa-star" aria-hidden="true"></i></span>
+<span><i class="fa fa-star" aria-hidden="true"></i></span>
+<span><i class="fa fa-star" aria-hidden="true"></i></span>
+<span>
+<i class="fa fa-star" aria-hidden="true"></i>
+</span>
+</div>
+</div>
+
+<div class="clearfix"></div>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commyolk augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Curabitur eget orci. </p>
+<div class="clearfix"></div>
+<br/>
+
+<div class="clearfix"></div>
+<br/><br/>
+<div class="divider-line solid light"></div>
+
+<br/><br/>
+
+
+<h4 class="uppercase">Available options</h4>
+ 
+
+<form class="form ">
+  <label class="uppercase">Size: </label>
+  <div  class="switch-field"   >
+    <div *ngFor="let order of orders">
+      <input  type="radio"  name="switch-two" [value]="order.name" [id]="order.id" (change)="onSizeChange($event.target.value)" />
+     <label for="{{order.id}}"> {{order.name}}</label>&nbsp; 
+      <!-- <input type="radio" id="2" name="switch-two" value="M" (change)="onSizeChange($event.target.value)"/>
+      <label for="2">M</label>&nbsp; 
+      <input type="radio" id="3" name="switch-two" value="L" (change)="onSizeChange($event.target.value)"/>
+      <label for="3">L</label>&nbsp;
+      <input type="radio" id="4" name="switch-two" value="XL" (change)="onSizeChange($event.target.value)"/>
+      <label for="4">XL</label>&nbsp;
+      <input type="radio" id="5" name="switch-two" value="XLL" (change)="onSizeChange($event.target.value)"/>
+      <label for="5">XXL</label> -->
+  </div>
+
+</div>
+
+ 
+</form>
+<!-- <a class="btn btn-border light btn-small xround-7">L</a> -->
+
+
+
+   <label class="uppercase">Quantity :</label>
+   <br>
+   <div class="btn btn-border btn-tiny xround-7">
+    <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+    <input type="text" class="product" value="1"  (change)="onQuantityChange($event.target.value)"/>
+    <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+   </div>
+
+   &nbsp; 
+   <ng-template [ngIf]="size!=null"[ngIfElse]="sizeNotSelected">
+                          
+    <a class="btn btn-cyan btn-medium xround-7 uppercase" href="#">Add to Cart</a>
+   
+  </ng-template>
+  
+    <ng-template #sizeNotSelected>
+      <a class="btn btn-cyan btn-medium xround-7 uppercase" href="">Select Size</a>
+  </ng-template>
+   
+   
+   
+   
+    
+
+
+
+
+</div>        
+          
+    
+
+<!--end right-->
+</div>
+ 
+  <div class="clearfix"></div>
+  <br/><br/>
+  
+  <div class="divider-line solid light"></div>
+  <br/><br/>
+  
+  <div class="col-xs-12 nopadding">
+              <div class="sec-title-container text-center">
+                <h6 class="uppercase font-weight-4 less-mar-1 text-primary">new collection</h6>
+                <h4 class="uppercase font-weight-7 less-mar-1">Related Products</h4>
+                <div class="sp-title-line-1"></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <!--end title-->
+            
+  <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="sp-feature-box-3 margin-bottom">
+                <div class="img-box"> <a routerLink = "/ProductPreview" class="view-btn uppercase">View</a>
+                  <div class="badge">Hot</div>
+                  <img src="assets/images/sp-4.jpg" alt="" class="img-responsive"/> </div>
+                <div class="clearfix"></div>
+                <h5 class="text-primary">$ 25.00–$ 29.00</h5>
+                <form class="form">
+                  <label class="uppercase">Size: </label>
+                  <div class="switch-field">
+                      <input type="radio" id="a1"  value="S"name="switch-two" (change)="onSizeChange($event.target.value)"/>
+                      <label for="a1">S</label>&nbsp; 
+                      <input type="radio" id="a2" name="switch-two" value="M" (change)="onSizeChange($event.target.value)"/>
+                      <label for="a2">M</label> &nbsp;
+                      <input type="radio" id="a3" name="switch-two" value="L" (change)="onSizeChange($event.target.value)"/>
+                      <label for="a3">L</label>&nbsp;
+                      <input type="radio" id="a4" name="switch-two" value="XL" (change)="onSizeChange($event.target.value)"/>
+                      <label for="a4">XL</label>&nbsp; 
+                      <input type="radio" id="a5" name="switch-two" value="XLL" (change)="onSizeChange($event.target.value)"/>
+                      <label for="a5">XXL</label>
+                  </div>
+                </form>  
+             
+                <a class="btn btn-border light btn-small" href="#">Add to cart</a> </div>
+            </div>
+            <!--end item-->
+            
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="sp-feature-box-3 margin-bottom">
+                <div class="img-box"> <a routerLink = "/ProductPreview" class="view-btn uppercase">View</a> <img src="assets/images/sp-13.jpg" alt="" class="img-responsive"/> </div>
+                <div class="clearfix"></div>
+                <br/>
+                <h5 class="less-mar-1">Black Pattren Top</h5>
+                <p>Lorem ipsum dolor sit amet</p>
+                <h5 class="text-primary">$ 25.00–$ 29.00</h5>
+                <br/>
+                <button class="btn btn-border light btn-small">Add to cart</button> </div>
+            </div>
+            <!--end item-->
+            
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="sp-feature-box-3 margin-bottom">
+                <div class="img-box"> <a routerLink = "/ProductPreview" class="view-btn uppercase">View</a>
+                  <div class="badge">New</div>
+                  <img src="assets/images/sp-6.jpg" alt="" class="img-responsive"/> </div>
+                <div class="clearfix"></div>
+                <br/>
+                <h5 class="less-mar-1">White Overcoat</h5>
+                <p>Lorem ipsum dolor sit amet</p>
+                <h5 class="text-primary">$ 25.00–$ 29.00</h5>
+                <br/>
+                <a class="btn btn-border light btn-small" href="#">Add to cart</a> </div>
+            </div>
+            <!--end item-->           
+    
+ 
+ 
+  <!--end left column -->
+  <div class="clearfix"></div>
+  <br/><br/>
+
+
+  </section>  
+
+
+

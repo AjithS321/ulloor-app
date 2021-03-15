@@ -1,0 +1,144 @@
+<section>
+  <div class="pagenation-holder">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <i class="breadcrumbs-1">No of products found {{products.length}} </i>
+        </div>
+        <div class="col-md-6">
+          <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">products</a></li>
+            <li class="current"><a href="#">{{category}}</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="section-side-image clearfix">
+  <section class="sec-padding">
+    <div class="container">
+      <h4 class="uppercase">product tittle</h4>
+      <ng-template [ngIf]="products.length>0" [ngIfElse]="noProduct">
+
+        <div class="col-md-12" style="padding-top: 40px;">
+          <div *ngFor="let product of products | paginate: config">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="ce-feature-box-7 margin-bottom">
+                <!-- <div class="img-box"> <a routerLink="product/view/{{product.handle}}" class="view-btn uppercase">View</a>
+                <div class="badge">Hot</div> -->
+                <!-- <div class="carousel-inner">
+			          <div class="item" *ngFor="let image of product.images">-->
+                <!-- <img src="assets/images/sp-23.jpg" alt="" width="350" height="350" class="img-responsive" /> -->
+                <img src='{{product.featuredImage}}' alt="" width="330" height="350" />
+                <!--'{{product.featuredImage}}' </div>
+			          </div>-->
+
+                <div class="clearfix"></div>
+                <br />
+                <div style="margin: auto;text-align: center;">
+                  <p> {{product.title}}
+                    <!-- <p>{{product.description}}</p -->
+                    <!-- <label class="uppercase">Prize : </label> -->
+
+                    <br>
+                    <ng-template [ngIf]="product.compareAtPriceVaries"><span style="color: red;"><s>Rs
+                          {{product.compareAtPrice}}</s></span>
+                    </ng-template>&nbsp;
+
+                    <ng-template [ngIf]="product.selectedVarient != null" [ngIfElse]="productNotselected">
+                      <span style="color: rgb(75, 233, 75);">Rs {{product.selectedVarient.price}}</span></ng-template>
+
+                    <ng-template #productNotselected>
+                      <span style="color: rgb(75, 233, 75);">Rs {{product.price}}</span>
+                    </ng-template>
+                  </p>
+
+                  <!-- <ng-template ngFor let-order [ngForOf]="product.sizePriceIdList" let-i="index"> -->
+                  <div [ngClass]="'switch-field'">
+                    <!-- <h4 class="less-mar-1" style="text-align:center;"> </h4> -->
+                    <ng-template ngFor let-order [ngForOf]="product.sizePriceIdList" let-i="index">
+
+                      <!-- <div *ngFor="let order of product.sizePriceIdList"> -->
+                      <input type="radio" name="switch-two" [value]="order.id" [id]="order.id"
+                        (change)="product.selectedVarient = onSizeChange($event.target.value,product.id)" />
+                      <label for="{{order.id}}"> {{order.size}}</label>&nbsp;
+                      <!-- </div> -->
+                    </ng-template>
+
+                  </div>
+
+                  <!-- </ng-template> -->
+
+
+
+                  <ng-template [ngIf]="product.selectedVarient==null" [ngIfElse]="selected">
+                    <div>
+                      <a class="selectsize btn btn-anim-3 uppercase" href="javascript:void(0)">
+                        select size
+                      </a>
+                    </div>
+                  </ng-template>
+                  <ng-template #selected>
+                    <div>
+                      <a class="addtocart btn btn-anim-3 uppercase " href="javascript:void(0)"
+                        (click)="addToCart(product.handle,product.selectedVarient,1)"><span
+                          class="fa fa-shopping-cart"></span>&nbsp;Add to cart</a>
+                    </div>
+                  </ng-template><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </ng-template>
+      <ng-template #noProduct>
+        <br><br>Ther is no product
+      </ng-template>
+    </div>
+  </section>
+  <div class="clearfix"></div>
+  <!-- end section  (click)="product.description=onSizeChange($event.target.value)"  (change)="onQuantityChange($event.target.value)"/-->
+
+
+
+</section>
+
+
+<!--<div style="text-align:center">
+    <h4>
+      Basic Pagination
+    </h4>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of collection.data | paginate: config">
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.value}}</td>
+        </tr>
+      </tbody>
+    </table>-->
+
+<pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
+  [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+  [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+  [screenReaderPageLabel]="labels.screenReaderPageLabel" [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+  (pageChange)="onPageChange($event)"></pagination-controls>
