@@ -1,0 +1,62 @@
+<nav>
+    <div class="wrapper">
+        <div class="logo"><a href="#">Fusions & Fashions</a></div>
+        <input type="radio" name="slider" id="menu-btn">
+        <input type="radio" name="slider" id="close-btn">
+        <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a routerLink="/home">Home</a></li>
+
+            <li>
+                <a href="#" class="desktop-item">Products</a>
+                <input type="checkbox" id="showMega">
+                <label for="showMega" class="mobile-item">Products</label>
+                <div class="mega-box">
+                    <div class="content">
+                        <div class="row">
+                            <!-- <img src="img.jpg" alt=""> -->
+                        </div>
+                        <div class="row">
+                            <header>Stationaries</header>
+                            <ul class="mega-links">
+                                <app-stationary-products>
+                                </app-stationary-products>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <header>Accessories/Gifts</header>
+                            <ul class="mega-links">
+                                <app-accesories-products> </app-accesories-products>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <header>Collections</header>
+                            <ul class="mega-links">
+                                <app-collections-products></app-collections-products>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">Combos</a></li>
+            <li>
+                <a href="#" class="desktop-item"><span class="fas fa-user"></span></a>
+                <input type="checkbox" id="showDrop">
+                <label for="showDrop" class="mobile-item"><span class="fas fa-user"></span> &nbsp;  User Info</label>
+                <ul class="drop-menu">
+                    <ng-template [ngIf]="notlogged" [ngIfElse]="userloggedin">
+                        <li>New Customer?<a routerLink="account/register">Sign Up</a> </li>
+                        <li> <a routerLink="account/login">login</a> </li>
+                    </ng-template>
+                    <ng-template #userloggedin>
+                        <li> <a routerLink="users/useraddress">My Profile</a> </li>
+                        <li> <a href="#">My orders</a> </li>
+                        <li> <a (click)="logout()">Logout</a> </li>
+                    </ng-template>
+                </ul>
+            </li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+        <label for="menu-btn" class="btn menu-btn"><i class="fa fa-bars"></i></label>
+    </div>
+</nav>
